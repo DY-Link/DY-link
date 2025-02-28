@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판 A</title>
+</head>
+<body>
+    <header>
+        <h1>게시판 A</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">홈</a></li>
+                <li><a href="boardA.html">게시판 A</a></li>
+		<li><button id="logoutBtn">로그아웃</button></li>>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="boardA">
+        <h2>게시판 A</h2>
+        <!-- 검색 기준을 선택할 수 있는 드롭다운 추가 -->
+        <input type="text" id="searchInput" placeholder="검색..." />
+        <select id="searchCategory">
+            <option value="title">제목</option>
+            <option value="content">내용</option>
+            <option value="author">작성자</option>
+        </select>
+        <button id="searchBtn">검색</button>
+        <button id="newPostBtn">새 게시글 작성</button>
+
+        <!-- 게시글 목록 표시 -->
+        <ul id="postList"></ul>
+    </section>
+
+<!-- 페이지네이션 표시 공간 -->
+<div id="pagination" class="pagination"></div>
+
+    <footer>
+        <p>&copy; 2025 사이트 이름. All rights reserved.</p>
+    </footer>
+
+    <!-- 새 게시글 작성 모달 -->
+    <div id="newPostModal" style="display:none;">
+        <form id="newPostForm">
+            <label for="postTitle">제목</label>
+            <input type="text" id="postTitle" required>
+
+            <label for="postContent">내용</label>
+            <textarea id="postContent" required></textarea>
+
+            <input type="hidden" id="postAuthor">
+
+            <label for="postCategory">카테고리:</label>
+            <select id="postCategory" name="postCategory">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+            </select>
+	<!-- 파일첨부 기능 -->
+    <label for="postFile">파일 첨부:</label>
+    <input type="file" id="postFile" name="postFile" />
+
+            <button type="submit">게시글 작성</button>
+            <button type="button" id="closeModalBtn">닫기</button>
+        </form>
+    </div>
+
+    <!-- 수정 모달 -->
+    <div id="editPostModal" style="display: none;">
+        <h2>게시글 수정</h2>
+        <form id="editPostForm">
+            <input type="hidden" id="editPostId">
+
+            <label for="editPostTitle">제목:</label>
+            <input type="text" id="editPostTitle" required>
+            <br>
+
+            <label for="editPostContent">내용:</label>
+            <textarea id="editPostContent" required></textarea>
+            <br>
+
+            <!-- 수정 모달에 카테고리 선택 추가 -->
+            <label for="editPostCategory">카테고리:</label>
+            <select id="editPostCategory">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+            </select>
+            <br>
+<!-- 파일첨부 기능 -->
+<label for="editPostFile">파일 첨부:</label>
+<input type="file" id="editPostFile" name="editPostFile" />
+
+<!-- ✅ 기존 첨부 파일 미리보기 추가 -->
+<a id="editPostFilePreview" href="#" target="_blank" style="display:none; margin-left: 10px;">첨부된 파일 보기</a>
+
+            <button type="button" id="editPostBtn">수정 완료</button>
+            <button type="button" id="closeEditModalBtn">닫기</button>
+        </form>
+    </div>
+
+    <script src="boardA.js"></script>
+</body>
+</html>

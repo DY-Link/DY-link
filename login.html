@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인 홈페이지</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>메인 홈페이지</h1>
+        <button id="loginBtn">로그인</button>
+        <button id="signupBtn">회원가입</button>
+        
+        <!-- 로그인 폼 (초기에는 숨겨짐) -->
+        <div id="loginForm" class="form" style="display: none;">
+            <h2>로그인</h2>
+            <form id="login">
+                <label for="loginUsername">아이디</label>
+                <input type="text" id="loginUsername" name="username" required oninput="this.value = this.value.toLowerCase()">
+                <label for="loginPassword">비밀번호</label>
+<input type="password" id="loginPassword" name="password" required oninput="this.value = this.value.toLowerCase()">
+                <button type="submit">로그인</button>
+            </form>
+            <button id="closeLogin">닫기</button>
+        </div>
+
+        <!-- 회원가입 폼 (초기에는 숨겨짐) -->
+        <div id="signupForm" class="form" style="display: none;">
+            <h2>회원가입</h2>
+            <form id="signup">
+                <label for="signupUsername">아이디</label>
+                <input type="text" id="signupUsername" name="username" required oninput="this.value = this.value.toLowerCase()">
+                
+                <label for="signupName">이름</label>
+                <input type="text" id="signupName" name="name" required><br>
+                
+                <label for="signupGender">성별</label>
+                <select id="signupGender" name="gender">
+                    <option value="male">남성</option>
+                    <option value="female">여성</option>
+                    <option value="other">기타</option>
+                </select><br>
+                
+                <label for="signupBirthdate">생년월일</label>
+                <input type="date" id="signupBirthdate" name="birthdate" required><br>
+                
+                <label for="signupAddress">거주지</label>
+                <input type="text" id="signupAddress" name="address" required><br>
+                
+                <label for="signupPassword">비밀번호</label>
+                <input type="password" id="signupPassword" name="password" required oninput="this.value = this.value.toLowerCase()">
+                
+                <button type="submit">회원가입</button>
+            </form>
+            <button id="closeSignup">닫기</button>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+    <script src="signup.js"></script>
+</body>
+</html>
